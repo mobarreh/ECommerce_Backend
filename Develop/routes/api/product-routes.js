@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         attributes: ['category_name']
       }]
   })
-  .then(data => res.json(data))
+  .then(Productdata => res.json(Productdata))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -35,13 +35,13 @@ router.get('/:id', (req, res) => {
         attributes: ['category_name']
       }]
   })
-  .then(data => {
-    if (!data
+  .then(Productdata => {
+    if (!Productdata
 ) {
       res.status(404).json({ message: 'Product not found' });
       return;
     }
-    res.json(data
+    res.json(Productdata
 );
   })
   .catch(err => {
@@ -76,7 +76,7 @@ router.post('/', (req, res) => {
 
 // update product
 router.put('/:id', (req, res) => {
-  // update product data
+  // update product Productdata
   Product.update(req.body, {
     where: {
       id: req.params.id,
@@ -123,12 +123,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(data => {
-    if (!data){
+  .then(Productdata => {
+    if (!Productdata){
       res.status(404).json({message: 'Product not found'});
       return;
     }
-    res.json(data
+    res.json(Productdata
 );
   })
   .catch(err => {

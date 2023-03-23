@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
       attributes: ['id', 'product_name' ]
     }]
   })
-  .then(data => res.json(data))
+  .then(Tagsdata => res.json(Tagsdata))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -31,12 +31,12 @@ router.get('/:id', (req, res) => {
         attributes: ['product_name', 'price', 'stock']
       }]
   })
-  .then(data => {
-    if (!data) {
+  .then(Tagsdata => {
+    if (!Tagsdata) {
       res.status(404).json({message: 'Tag does not exist'});
       return;
     }
-    res.json(data);
+    res.json(Tagsdata);
   })
   .catch(err => {
     console.log(err);
@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
     tag_name: req.body.tag_name})
-  .then(data => res.json(data))
+  .then(Tagsdata => res.json(Tagsdata))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -64,12 +64,12 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
     })
-    .then(data => {
-      if (!data) {
+    .then(Tagsdata => {
+      if (!Tagsdata) {
         res.status(404).json({ message: 'Tag does not exist' });
         return;
       }
-      res.json(data);
+      res.json(Tagsdata);
     })
     .catch(err => {
       console.log(err);
@@ -84,12 +84,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(data => {
-    if (!data) {
+  .then(Tagsdata => {
+    if (!Tagsdata) {
       res.status(404).json({ message: 'Tag does not exist' });
       return;
     }
-    res.json(data);
+    res.json(Tagsdata);
   })
   .catch(err => {
     console.log(err);
