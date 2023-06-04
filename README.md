@@ -8,7 +8,7 @@ In the terminal, create the SQL tables by running ``` mysql -u root -p ``` to en
 Then seed in the data by running ``` node seeds/index.js ```
 
 
-To start the application, run ``` npm run start ```` and the application will be listening at Localhost:3001
+To start the application, run ``` npm run start ``` and the application will be listening at Localhost:3001
 
 Use Insomnia to execute your GET, POST, OUT and DELETE requests.
 
